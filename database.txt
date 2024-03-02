@@ -1,1 +1,0 @@
-var conn=mysql.createConnection({host:"casino-lotus.mysql.database.azure.com", user:"Roberta", password:"Williams8", database:"casino-lotus", port:3306, ssl:{ca:fs.readFileSync("{ca-cert filename}")}});
