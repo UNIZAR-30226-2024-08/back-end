@@ -1,5 +1,6 @@
 
-const mysql = require('mysql');
+import mysql from 'promise-mysql';
+export { query };
 
 const pool = mysql.createPool({
     host: "casino-lotus.mysql.database.azure.com",
@@ -9,17 +10,15 @@ const pool = mysql.createPool({
     port:3306
 });
 
-const query = (text, params, callback) => {
+const query = async (text: string, params: any[]): Promise<any> => {
     const start = Date.now();
-    pool.query(text, params, (err, res) => {
-        if(err) throw err;
+    try {
+        const res = await (await pool).query(text, params);
         const duration = Date.now() - start;
         console.log('executed query', { text, duration, rows: res ? res.length : 0 });
-        
-        callback(err, res);
-    });
-}
-
-module.exports = {
-    query
-}
+        return res;
+    } catch (err) {
+        throw err;
+    }
+    
+};
