@@ -15,6 +15,10 @@ app.use(cors()); // Esto permite que el servidor sea accedido desde cualquier or
 // Ejemplo de función asíncrona para hacer consultas a la base de datos
 import * as db from './db/index'; // Para usar la base de datos
 
+app.get('/holamundo', (req, res) => {
+	res.send('Hola mundo')
+});
+
 app.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
 
