@@ -8,7 +8,7 @@ import cors from 'cors';
 
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; // Si no se especifica el puerto en el servidor, se usará el 3001
 app.use(cors()); // Esto permite que el servidor sea accedido desde cualquier origen
 
 
