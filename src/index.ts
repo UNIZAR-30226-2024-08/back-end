@@ -8,7 +8,7 @@ import cors from 'cors';
 
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.use(cors()); // Esto permite que el servidor sea accedido desde cualquier origen
 
 
@@ -16,7 +16,7 @@ app.use(cors()); // Esto permite que el servidor sea accedido desde cualquier or
 import * as db from './db/index'; // Para usar la base de datos
 
 app.get('/holamundo', (req, res) => {
-	res.send('Hola mundo')
+	res.send('Hola mundo en backend!')
 });
 
 app.listen(PORT, async () => {

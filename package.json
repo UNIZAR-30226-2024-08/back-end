@@ -4,6 +4,7 @@
   "description": "Repositorio con el back-end de la aplicación.",
   "main": "index.js",
   "scripts": {
+    "start": "node build/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec npx ts-node src/index.ts"
   },
   "keywords": [],
