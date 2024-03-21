@@ -1,13 +1,15 @@
 
 import mysql from 'promise-mysql';
+import dotenv from 'dotenv';
 export { query };
 
+dotenv.config(); // Lee el archivo .env y lo pone en process.env
 const pool = mysql.createPool({
-    host: "casino-lotus.mysql.database.azure.com",
-    user:"Roberta",
-    password:"Williams8",
-    database:"casino-lotus",
-    port:3306
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: Number(process.env.DB_PORT)
 });
 
 const query = async (text: string, params: any[]): Promise<any> => {
